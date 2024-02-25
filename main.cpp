@@ -21,3 +21,14 @@ void initMatrix(int matrix[N][N]) {
         }
     }
 }
+
+int main(int argc, char *argv[]) {
+    int rank, size, sum = 0;
+    int a[N][N], b[N][N], c[N][N], aRows[N], cRows[N];
+    MPI_Init(&argc, &argv);
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
+
+
+}
