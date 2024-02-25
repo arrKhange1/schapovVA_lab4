@@ -7,7 +7,7 @@ void print_matrix(char* text, int matrix[N][N]) {
     std::cout << text << std::endl;
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < N; ++j) {
-            printf(" %d", a[i][j]);
+            printf(" %d", matrix[i][j]);
         }
         printf ("\n");
     }
@@ -49,4 +49,10 @@ int main(int argc, char *argv[]) {
         cRows[i] = sum;
         sum = 0;
     }
+
+    MPI_Gather(cRows, N*N/size, MPI_INT, c, N*N/size, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Barrier(MPI_COMM_WORLD);
+    MPI_Finalize();
+    if (rank == 0)
+        print_matrix("Result matrix:", c);
 }
