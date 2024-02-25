@@ -42,5 +42,11 @@ int main(int argc, char *argv[]) {
     MPI_Bcast(b, N*N, MPI_INT, 0, MPI_COMM_WORLD);
     MPI_Barrier(MPI_COMM_WORLD);
 
-
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            sum += aRows[j] * b[j][i];
+        }
+        cRows[i] = sum;
+        sum = 0;
+    }
 }
