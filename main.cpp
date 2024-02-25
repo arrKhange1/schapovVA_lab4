@@ -3,7 +3,7 @@
 #include <ctime>
 #include <iostream>
 
-void print_results(char* text, int matrix[N][N]) {
+void print_matrix(char* text, int matrix[N][N]) {
     std::cout << text << std::endl;
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < N; ++j) {
@@ -12,4 +12,12 @@ void print_results(char* text, int matrix[N][N]) {
         printf ("\n");
     }
     printf ("\n\n");
+}
+
+void initMatrix(int matrix[N][N]) {
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            matrix[i][j] = rand() % 21 - 10; // -10 до 10
+        }
+    }
 }
