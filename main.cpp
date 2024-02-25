@@ -38,4 +38,9 @@ int main(int argc, char *argv[]) {
         print_matrix("Matrix B:", b);
     }
 
+    MPI_Scatter(a, N*N/size, MPI_INT, aRows, N*N/size, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Bcast(b, N*N, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Barrier(MPI_COMM_WORLD);
+
+
 }
