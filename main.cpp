@@ -29,6 +29,13 @@ int main(int argc, char *argv[]) {
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
+    if (rank == 0) {
+        srand(time(NULL));
+        initMatrix(a);
+        initMatrix(b);
 
+        print_matrix("Matrix A:", a);
+        print_matrix("Matrix B:", b);
+    }
 
 }
